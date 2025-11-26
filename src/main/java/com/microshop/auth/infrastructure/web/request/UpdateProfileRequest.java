@@ -1,13 +1,17 @@
 package com.microshop.auth.infrastructure.web.request;
 
-import jakarta.validation.constraints.NotBlank;
+import com.microshop.auth.domain.model.valueobject.Password;
+
 
 public record UpdateProfileRequest(
-    @NotBlank
-    String firstName,
 
-    @NotBlank
-    String lastName,
+        String token,
 
-    String phoneNumber
+        String email,
+
+        Password password,
+
+        String firstName,
+
+        String lastName
 ) {}

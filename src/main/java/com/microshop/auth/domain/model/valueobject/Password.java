@@ -2,8 +2,14 @@ package com.microshop.auth.domain.model.valueobject;
 
 import com.microshop.auth.domain.exception.InvalidPasswordException;
 import com.microshop.auth.domain.service.PasswordEncoder;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
-public record Password(String hash) {
+@Embeddable
+public record Password(
+        @Column(name = "password_hash")
+        String hash
+) {
     public Password {
         if (hash == null || hash.isBlank()) {
             throw new InvalidPasswordException("Password cannot be empty");

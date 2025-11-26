@@ -1,8 +1,14 @@
 package com.microshop.auth.domain.model.valueobject;
 
 import com.microshop.auth.domain.exception.InvalidEmailException;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
-public record Email(String value) {
+@Embeddable
+public record Email(
+        @Column(name = "email",unique = true)
+        String value
+) {
     public Email {
         if (!isValid(value)) {
             throw new InvalidEmailException(value);

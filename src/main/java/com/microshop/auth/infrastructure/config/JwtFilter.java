@@ -1,4 +1,4 @@
 package com.microshop.auth.infrastructure.config;
 
-public class JwtConfig {
+public class JwtFilter {
 }
